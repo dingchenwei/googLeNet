@@ -45,7 +45,7 @@ def define_model(weight_path = None):
 
     drop1 = Dropout(rate=0.4)(averagepool1_7x7_s1)
 
-    linear = Dense(units=1000, activation='softmax', kernel_regularizer=l2(0.01))(drop1)
+    linear = Dense(units=1000, activation='softmax', kernel_regularizer=l2(0.01))(keras.layers.core.Flatten(drop1))
     last = linear
 
 
